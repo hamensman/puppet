@@ -6,7 +6,7 @@ file { '/usr/local/bin/run-puppet':
 
 exec { 'Check dir exists':
   command => 'mkdir /opt/puppetlabs/bin',
-  onlyif => 'test ! -e /opt/puppetlabs/bin/'
+  creates => '/opt/puppetlabs/bin/',
 }
 
 cron { 'run-puppet':
