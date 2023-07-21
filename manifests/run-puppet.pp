@@ -4,14 +4,13 @@ file { '/usr/local/bin/run-puppet':
   mode   => '0755',
 }
 
+exec { 'Check dir exists':
+  command => 'mkdir /opt/puppetlabs/bin',
+  onlyif => 'test ! -e /opt/puppetlabs/bin/'
+}
+
 cron { 'run-puppet':
   command => '/usr/local/bin/run-puppet',
   hour    => '*',
   minute  => '*/15',
-}
-
-exec { 'Check dir exists':
-  command => 'mkdir /opt/puppetlabs/bin',
-  ensure => directory,
-  onlyif => 'test ! -e /opt/puppetlabs/bin/'
 }
