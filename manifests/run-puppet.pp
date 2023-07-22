@@ -9,8 +9,3 @@ cron { 'run-puppet':
   hour    => '*',
   minute  => '*/15',
 }
-
-file { '/opt/puppetlabs/bin/':
-  ensure => directory,
-  onlyif => 'test ! -d /opt/puppetlabs/bin/'
-}
