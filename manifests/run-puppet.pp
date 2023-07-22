@@ -10,8 +10,7 @@ cron { 'run-puppet':
   minute  => '*/15',
 }
 
-exec { 'Check dir exists':
-  command => 'mkdir /opt/puppetlabs/bin',
+file { '/opt/puppetlabs/bin/':
   ensure => directory,
-  onlyif => 'test ! -e /opt/puppetlabs/bin/'
+  onlyif => 'test ! -d /opt/puppetlabs/bin/'
 }
