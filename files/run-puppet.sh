@@ -1,3 +1,3 @@
 #!/bin/bash
-cd /etc/puppetlabs/code/environments/production && git pull
+cd /etc/puppet/code/environments/production && git pull
 /usr/bin/puppet apply manifests/
